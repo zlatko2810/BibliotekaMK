@@ -14,7 +14,6 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
 
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { UserInfoContext } from '../../contexts/UserInfoContext'
 
@@ -26,7 +25,6 @@ const Subscribe = () => {
 
     const { userInfo } = useContext(UserInfoContext);
     const tokenFromRedux = useSelector((state) => state.accessToken.accessToken);
-    const navigate = useNavigate()
 
     const [openSuccess, setOpenSuccess] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
@@ -67,7 +65,6 @@ const Subscribe = () => {
                 setOpenSuccess(true)
                 setTimeout(() => {
                     window.location.reload()
-                    navigate('/home')
                 }, 2000);
             }
         } catch (error) {
